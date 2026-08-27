@@ -1,0 +1,53 @@
+@model List<BookMvc.Models.Book>
+
+@{
+    ViewData["Title"] = "Bücher";
+}
+
+<h1>Bücher</h1>
+
+<p>
+    <a asp-action="Create">Neues Buch erstellen</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titel</th>
+            <th>Autor</th>
+            <th>Preis</th>
+            <th>Aktionen</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Price €</td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@book.Id">
+                        Details
+                    </a>
+
+                    |
+
+                    <a asp-action="Edit" asp-route-id="@book.Id">
+                        Bearbeiten
+                    </a>
+
+                    |
+
+                    <a asp-action="Delete" asp-route-id="@book.Id">
+                        Löschen
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

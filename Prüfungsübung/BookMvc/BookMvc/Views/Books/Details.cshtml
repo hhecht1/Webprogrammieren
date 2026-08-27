@@ -1,0 +1,29 @@
+@model BookMvc.Models.Book
+
+@{
+    ViewData["Title"] = "Buchdetails";
+}
+
+<h1>Buchdetails</h1>
+
+<p>
+    <strong>Id:</strong>
+    @Model.Id
+</p>
+
+<p>
+    <strong>Titel:</strong>
+    @Model.Title
+</p>
+
+<p>
+    <strong>Autor:</strong>
+    @Model.Author
+</p>
+
+<p>
+    <strong>Preis:</strong>
+    @Model.Price €
+</p>
+
+<a asp-action="Index">Zurück zur Liste</a>

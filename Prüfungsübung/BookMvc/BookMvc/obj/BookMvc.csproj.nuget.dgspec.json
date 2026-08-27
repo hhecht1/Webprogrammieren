@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Prüfungsübung\\Book\\BookApi\\BookApi.csproj": {}
+    "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Prüfungsübung\\BookMvc\\BookMvc\\BookMvc.csproj": {}
   },
   "projects": {
-    "c:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Prüfungsübung\\Book\\BookApi\\BookApi.csproj": {
+    "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Prüfungsübung\\BookMvc\\BookMvc\\BookMvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Prüfungsübung\\Book\\BookApi\\BookApi.csproj",
-        "projectName": "BookApi",
-        "projectPath": "c:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Prüfungsübung\\Book\\BookApi\\BookApi.csproj",
+        "projectUniqueName": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Prüfungsübung\\BookMvc\\BookMvc\\BookMvc.csproj",
+        "projectName": "BookMvc",
+        "projectPath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Prüfungsübung\\BookMvc\\BookMvc\\BookMvc.csproj",
         "packagesPath": "C:\\Users\\helge12\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Prüfungsübung\\Book\\BookApi\\obj\\",
+        "outputPath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Prüfungsübung\\BookMvc\\BookMvc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\helge12\\AppData\\Roaming\\NuGet\\NuGet.Config"
