@@ -1,0 +1,50 @@
+GET http://localhost:5240
+
+###
+
+GET http://localhost:5240/books
+
+### 
+
+GET http://localhost:5240/books/1
+
+### 
+
+POST http://localhost:5240/books/1
+Content-Type: application/json
+
+{
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "price": 13.99
+}
+
+### 
+
+
+
+
+POST http://localhost:5240/books/1 
+Content-Type: application/json
+
+{
+   "title": "New Book Title",
+   "author": "New Book Author",
+   "price": 9.99
+}
+
+###
+
+
+PUT http://localhost:5240/books/1
+Content-Type: application/json
+
+{
+    "title": "The Great Gatsby - Updated",
+    "author": "F. Scott Fitzgerald",
+    "price": 15.99
+}
+
+### 
+
+DELETE http://localhost:5240/books/10
