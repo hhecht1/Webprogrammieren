@@ -1,0 +1,21 @@
+GET http://localhost:5045/notes
+
+
+###
+GET http://localhost:5045/notes/4
+
+###
+
+
+POST http://localhost:5045/notes
+Content-Type: application/json
+
+{
+  "title": "Lernen",
+  "content": "Übungsaufgaben machen"
+}
+###
+
+DELETE http://localhost:5045/notes/4
+
+###
