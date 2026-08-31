@@ -1,6 +1,5 @@
 using NoteApi.Services;
 using NoteApi.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 
 var builder = WebApplication.CreateBuilder(args);
