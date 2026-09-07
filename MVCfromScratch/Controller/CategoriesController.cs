@@ -74,8 +74,21 @@ namespace MVCfromScratch.Controllers
         [HttpPost]
         public IActionResult Add(Category category)
         {
-            CategoriesRepository.AddCategory(category);
+            if (ModelState.IsValid)
+            {
+                CategoriesRepository.AddCategory(category);
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(category);
+        }
+
+        public IActionResult Delete(int categoryid)
+        {
+
+            CategoriesRepository.DeleteCategory(categoryid);
             return RedirectToAction(nameof(Index));
+
         }
 
     }
