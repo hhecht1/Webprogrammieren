@@ -1,0 +1,32 @@
+﻿<!-- Views/Home/Index.cshtml -->
+@model List<SimpleMvc.Models.Book>
+
+<h2>Verfügbare Bücher</h2>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titel</th>
+            <th>Autor</th>
+            <th>Preis</th>
+            <th>Aktion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Price.ToString("C")</td>
+                <td>
+                    <!-- Tag Helper für den Link zur Details-Ansicht -->
+                    <a asp-action="Details" asp-route-id="@book.Id">Details</a>
+                    <a asp-action="Remove" asp-route-id="@book.Id">Entfernen</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

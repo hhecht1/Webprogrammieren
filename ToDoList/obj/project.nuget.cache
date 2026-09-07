@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "qMG2BgsNlsI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\ToDoList\\ToDoList.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\helge12\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.11\\microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
+    "C:\\Users\\helge12\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512",
+    "C:\\Users\\helge12\\.nuget\\packages\\scalar.aspnetcore\\2.17.2\\scalar.aspnetcore.2.17.2.nupkg.sha512"
+  ],
+  "logs": []
+}

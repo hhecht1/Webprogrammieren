@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Neues Buch erstellen";
+}
+
+@model SimpleMvc.Models.Book
+
+<h2>Neues Buch erstellen</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+    </div>
+    <div>
+        <label asp-for="Author"></label>
+        <input asp-for="Author" />
+    </div>
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" />
+    </div>
+    <div>
+        <button type="submit">Erstellen</button>
+    </div>
+</form>
