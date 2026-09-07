@@ -1,0 +1,14 @@
+get http://localhost:5064/htmlformular
+
+
+###
+
+get http://localhost:5064/login
+
+###
+
+get http://localhost:5064/home/otherroute
+
+###
+
+get http://localhost:5064/categories/edit/1
