@@ -1,36 +1,51 @@
 @using MVCfromScratch.Models
 @model List<Product>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 
 @section title {
     <h3>Products</h3>
 }
+<div class="card shadow-sm border-0">
+    <div class="card-header bg-light d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">Manage Products</h3>
+        <a class="btn btn-primary btn-sm" asp-controller="products" asp-action="add">Add</a>
+    </div>
 
-@if (Model != null && Model.Count > 0)
-{
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Category</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var product in Model)
-            {
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td>@product.Name</td>
-                    <td>@product.Price?</td>
-                    <td>@product.Quantity</td>
-                    <td>@product.Category?.Name</td>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Category Name</th>
+
+            
                 </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>No products available.</p>
-}
+            </thead>
+            <tbody>
+                @foreach (var product in Model.OrderBy(p => p.Category?.Name).ThenByDescending(p => p.Price))
+                {
+                    <tr>
+                        <td>@product.Name</td>
+                        <td>@(product.Price?.ToString("C"))</td>
+                        <td>@(product.Quantity == 0 ? "Out of stock" : product.Quantity.ToString())</td>
+                        <td>@product.Category?.Name</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-primary me-2" asp-controller="products" asp-action="edit"
+                               asp-route-id="@product.ProductId">Edit</a>
+                            <a class="btn btn-sm btn-outline-danger" asp-controller="products" asp-action="delete"
+                               asp-route-id="@product.ProductId" onclick="return confirm('Delete for sure?')">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No products available.</p>
+    }
+</div>

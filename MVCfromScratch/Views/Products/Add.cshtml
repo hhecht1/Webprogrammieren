@@ -1,0 +1,18 @@
+@model MVCfromScratch.ViewModels.ProductViewModel
+
+@section title {
+    <h3>Add Product</h3>
+}
+<partial name="_Product" model="@Model" />
+
+<form method="post" asp-controller="products" asp-action="add">
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+    <div class="col">
+        <span class="text-danger" asp-validation-for="Product.CategoryId"></span>
+    </div>
+
+   
+   
+
+
+</form>

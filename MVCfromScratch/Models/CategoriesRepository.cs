@@ -7,6 +7,17 @@ namespace MVCfromScratch.Models
             new Category { CategoryId = 1, Name = "Beverage", Description = "Beverage Description"},
             new Category { CategoryId = 2, Name = "Bakery", Description = "Bakery Description"},
             new Category { CategoryId = 3, Name = "Meat", Description = "Meat Description"},
+            new Category { CategoryId = 4, Name = "Fruit", Description = "Fresh fruits and seasonal products"},
+            new Category { CategoryId = 5, Name = "Vegetables", Description = "Fresh vegetables and greens"},
+            new Category { CategoryId = 6, Name = "Dairy", Description = "Milk, cheese and dairy products"},
+            new Category { CategoryId = 7, Name = "Snacks", Description = "Quick bites and savory snacks"},
+            new Category { CategoryId = 8, Name = "Frozen", Description = "Frozen food and ice products"},
+            new Category { CategoryId = 9, Name = "Cleaning", Description = "Household cleaning supplies"},
+            new Category { CategoryId = 10, Name = "Personal Care", Description = "Care and hygiene products"},
+            new Category { CategoryId = 11, Name = "Bread", Description = "Fresh bread and baked goods"},
+            new Category { CategoryId = 12, Name = "Coffee", Description = "Coffee beans and coffee accessories"},
+            new Category { CategoryId = 13, Name = "Tea", Description = "Tea leaves and hot beverages"},
+
         };
 
 

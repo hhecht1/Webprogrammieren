@@ -28,11 +28,11 @@
                         <tr>
                             <th>Name</th>
                             <th>Description</th>
-                            <th class="text-end">Actions</th>
+                            <th class="text-end"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var category in Model)
+                        @foreach (var category in Model.OrderBy(c => c.Name))
                         {
                             <tr>
                                 <td>@category.Name</td>
@@ -41,7 +41,8 @@
                                     <a class="btn btn-sm btn-outline-primary me-2" asp-controller="categories" asp-action="edit"
                                        asp-route-id="@category.CategoryId">Edit</a>
                                     <a class="btn btn-sm btn-outline-danger" asp-controller="categories" asp-action="delete"
-                                       asp-route-categoryid="@category.CategoryId" onclick="return confirmDelete()">Delete</a>
+                                       asp-route-categoryid="@category.CategoryId"
+                                       onclick="return confirm('Delete for sure?')">Delete</a>
                                 </td>
                             </tr>
                         }
