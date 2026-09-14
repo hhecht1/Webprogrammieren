@@ -40,7 +40,7 @@ namespace MVCfromScratch.Controllers
         public IActionResult Edit(int? id)      // [FromHeader]int? id
         {
             // var category = new Category { CategoryId = id.HasValue ? id.Value : 0 };
-
+            ViewBag.Action = "Edit";
             if (id == null)
                 return NotFound();
 
@@ -55,6 +55,7 @@ namespace MVCfromScratch.Controllers
         [HttpPost]
         public IActionResult Edit(Category category)
         {
+            ViewBag.Action = "Edit";
             if (ModelState.IsValid)
             {
                 CategoriesRepository.UpdateCategory(category.CategoryId, category);
@@ -68,6 +69,7 @@ namespace MVCfromScratch.Controllers
 
         public IActionResult Add()
         {
+            ViewBag.Action = "Add";
             return View();
         }
 
@@ -80,7 +82,8 @@ namespace MVCfromScratch.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(category);
+            ViewBag.Action = "Add";
+            return View("_Category", category);
         }
 
         public IActionResult Delete(int categoryid)
