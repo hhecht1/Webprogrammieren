@@ -1,0 +1,204 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|d:\\bbrz\\c#\\webprog_5\\m5_1\\komplexeeingaben\\views\\home\\taghelper.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|solutionrelative:komplexeeingaben\\views\\home\\taghelper.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|d:\\bbrz\\c#\\webprog_5\\m5_1\\komplexeeingaben\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|solutionrelative:komplexeeingaben\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|d:\\bbrz\\c#\\webprog_5\\m5_1\\komplexeeingaben\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|solutionrelative:komplexeeingaben\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|d:\\bbrz\\c#\\webprog_5\\m5_1\\komplexeeingaben\\models\\komplexin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|solutionrelative:komplexeeingaben\\models\\komplexin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|d:\\bbrz\\c#\\webprog_5\\m5_1\\komplexeeingaben\\views\\home\\taghelper.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|solutionrelative:komplexeeingaben\\views\\home\\taghelper.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|d:\\bbrz\\c#\\webprog_5\\m5_1\\komplexeeingaben\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|solutionrelative:komplexeeingaben\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|d:\\bbrz\\c#\\webprog_5\\m5_1\\komplexeeingaben\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|solutionrelative:komplexeeingaben\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|d:\\bbrz\\c#\\webprog_5\\m5_1\\komplexeeingaben\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|solutionrelative:komplexeeingaben\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|d:\\bbrz\\c#\\webprog_5\\m5_1\\komplexeeingaben\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|solutionrelative:komplexeeingaben\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|d:\\bbrz\\c#\\webprog_5\\m5_1\\komplexeeingaben\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|solutionrelative:komplexeeingaben\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|d:\\bbrz\\c#\\webprog_5\\m5_1\\komplexeeingaben\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F5EAA9E-BE95-E555-A11E-4C31E9EE2ACE}|KomplexeEingaben\\KomplexeEingaben.csproj|solutionrelative:komplexeeingaben\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TagHelper.cshtml",
+              "DocumentMoniker": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\Home\\TagHelper.cshtml",
+              "RelativeDocumentMoniker": "KomplexeEingaben\\Views\\Home\\TagHelper.cshtml",
+              "ToolTip": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\Home\\TagHelper.cshtml",
+              "RelativeToolTip": "KomplexeEingaben\\Views\\Home\\TagHelper.cshtml",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAAC4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-12T17:02:23.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TagHelper.cshtml.cs",
+              "DocumentMoniker": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\Home\\TagHelper.cshtml.cs",
+              "RelativeDocumentMoniker": "KomplexeEingaben\\Views\\Home\\TagHelper.cshtml.cs",
+              "ToolTip": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\Home\\TagHelper.cshtml.cs",
+              "RelativeToolTip": "KomplexeEingaben\\Views\\Home\\TagHelper.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-12T17:01:45.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "KomplexIn.cs",
+              "DocumentMoniker": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Models\\KomplexIn.cs",
+              "RelativeDocumentMoniker": "KomplexeEingaben\\Models\\KomplexIn.cs",
+              "ToolTip": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Models\\KomplexIn.cs",
+              "RelativeToolTip": "KomplexeEingaben\\Models\\KomplexIn.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAwwBgAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T20:57:04.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "KomplexeEingaben\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Properties\\launchSettings.json",
+              "RelativeToolTip": "KomplexeEingaben\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-11T20:41:12.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\appsettings.json",
+              "RelativeDocumentMoniker": "KomplexeEingaben\\appsettings.json",
+              "ToolTip": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\appsettings.json",
+              "RelativeToolTip": "KomplexeEingaben\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-11T20:39:04.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "KomplexeEingaben\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "KomplexeEingaben\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-11T20:14:25.765Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "KomplexeEingaben\\Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "KomplexeEingaben\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-11T20:14:03.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "KomplexeEingaben\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "KomplexeEingaben\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACQAAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-11T20:12:41.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "KomplexeEingaben\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "KomplexeEingaben\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAC0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-11T20:12:07.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "KomplexeEingaben\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "KomplexeEingaben\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAAAG0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T20:11:34.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Program.cs",
+              "RelativeDocumentMoniker": "KomplexeEingaben\\Program.cs",
+              "ToolTip": "D:\\BBRZ\\C#\\WebProg_5\\M5_1\\KomplexeEingaben\\Program.cs",
+              "RelativeToolTip": "KomplexeEingaben\\Program.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T20:05:08.624Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+@KomplexeEingaben_HostAddress = http://localhost:5190
+
+GET {{KomplexeEingaben_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

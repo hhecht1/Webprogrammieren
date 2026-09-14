@@ -1,0 +1,344 @@
+﻿@* @page *@
+@model KomplexeEingaben.Models.KomplexIn
+@{
+    Layout = "_Layout";
+}
+
+<h1>Inputs with Tag-Helper</h1>
+
+
+<form method="post" action="/Home/TagHelper">
+    <table>
+        <tr>
+            <!--############### Spalte 1 ####################-->
+            <td class=" column-gap-5">
+                <div class="container column-gap-5">
+                    <b class="text-bg-success">button</b><br />
+                    <b class="text-bg-success">checkbox</b><br />
+                    <b class="text-bg-success">color</b><br />
+                    <b class="text-bg-success">date</b><br />
+                    <b class="text-bg-success">datetime</b><br />
+                    <b>datetime-local</b><br />
+                    <b>email</b><br />
+                    <b class="text-bg-success">file</b><br />
+                    <b class="text-bg-success">hidden</b><br />
+                    <b class="text-bg-success">image</b><br />
+                    <b>month</b><br />
+                    <b class="text-bg-success">number</b><br />
+                    <b class="text-bg-success">password</b><br />
+                    <b class="text-bg-success">radio</b><br />
+                    <b class="text-bg-success">range</b><br />
+                    <b class="text-bg-success">reset</b><br />
+                    <b>search</b><br />
+                    <b class="text-bg-success">submit</b><br />
+                    <b>tel</b><br />
+                    <b class="text-bg-success">text</b><br />
+                    <b class="text-bg-success">time</b><br />
+                    <b>url</b><br />
+                    <b>week</b><br />
+                    <b class="text-danger">&#60;select&#62;</b>
+                </div>
+            </td>
+            <td><div class="container column-gap-3"></div></td>
+
+                <!--############### Spalte 3 ####################-->
+            <td valign="top">
+                <br />
+                <h3>Textfield</h3>
+                <div class="container">
+                    Name: @Model.Name
+                    <br />
+                    @* <input type="hidden" name="Name" value="@Model.Name" /> *@
+                    <input type="text" asp-for="Name" value="@Model.Name" />
+                </div>
+                <br />
+
+                <h3>Password</h3>
+                <div class="container">
+                    Password: @Model.Password
+                    <br />
+                    <input type="password" asp-for="Password" @* value="@Model.Password" *@ />
+                </div>
+                <br />
+
+                <h3>Number</h3>
+                <div class="container">
+                        <input type="number" step="0.01" @* name="Number" *@ asp-for="Number" asp-format="{0:0.00}" @* value="@Model.Number" *@ class="form-control" />
+                </div>
+                <br />
+                <br />
+
+
+                <br />
+                <h3>Datum</h3>
+                <div>
+                    <label>Geburtsdatum:</label>
+                    <!-- Wert muss im Razor-View explizit formatiert werden -->
+                    <input type="date" asp-for="BirthDate" @* asp-format="yyyy.MM.dd" *@ value="@Model.BirthDate.ToString("yyyy-MM-dd")" />
+                </div>
+                <br />
+
+                <h3>Time</h3>
+                <div>
+                    <input type="time" name="Time" value="@Model.Time.TimeOfDay" />
+                </div>
+                <br />
+
+                <h3>DateTime</h3>
+                <div>
+                    <input type="datetime" asp-for="DateTime" value="@Model.DateTime" />
+                </div>
+            </td>
+            <td><div class="container column-gap-sm-4"></div></td>
+
+                <!--############### Spalte 5 ####################-->
+            <td valign="top">
+                <br />
+
+                <h3>Single Checkbox</h3>
+                <div class="container-fluid">
+
+                @* Mit Helpern (Keine Tag-Helper) *@
+                @*     @Html.CheckBoxFor(m => m.IsSubscribed, new { @class = "form-check-input" })
+                <label for="IsSubscribed">Ist angemeldet?</label> *@
+
+                <div class="form-check">
+                    <input asp-for="IsSubscribed" class="form-check-input" />
+                    <label asp-for="IsSubscribed" class="form-check-label">
+                        AGB akzeptieren
+                    </label>
+                </div>
+                <br />
+
+                <h3>Multiple Checkboxes</h3>
+                @* <div class="container">                        
+                    <input type="checkbox" name="SelectedIds" value="1" checked="@(Model.SelectedIds.Contains(1) ? "checked" : null)" /> Option 1<br />
+                    <input type="checkbox" name="SelectedIds" value="2" checked="@(Model.SelectedIds.Contains(2) ? "checked" : null)" /> Option 2<br />
+                    <input type="checkbox" name="SelectedIds" value="3" checked="@(Model.SelectedIds.Contains(3) ? "checked" : null)" /> Option 3
+                </div> *@
+                    @foreach (var item in Model.CheckboxField)
+                    {
+                        <div>
+                            <!-- Option A: Nur ausgewählte Werte senden (empfohlen für Listen von IDs) -->
+                            <!-- Der Name "SelectedIds" muss im Controller als List<int> erwartet werden -->
+                            <input type="checkbox"
+                                   name="SelectedIds"
+                                   value="@item.Wert"
+                                   checked="@item.IsChecked" />
+                            @item.Name
+                        </div>
+                    }
+
+                <br />
+                <br />
+                <h3>Selections</h3>
+                <div class="container">
+                    <label>Kategorie wählen:</label>
+                    <select asp-for="CategoryId">
+                        <option value="" selected="@(Model.CategoryId == 0 ? "selected" : null)">-- Bitte wählen --</option>
+                        <option value="1" selected="@(Model.CategoryId == 1 ? "selected" : null)">Elektronik</option>
+                        <option value="2" selected="@(Model.CategoryId == 2 ? "selected" : null)">Bücher</option>
+                        <option value="3" selected="@(Model.CategoryId == 3 ? "selected" : null)">Kleidung</option>
+                    </select>
+                </div>
+
+                <br />
+                <h3>Multiple Selections</h3>
+                <div class="container">
+                    <select name="SelectedCategories" multiple>
+                        <option value="1" selected="@(Model.SelectedCategories.Contains(1) ? "selected" : null)">Elektronik</option>
+                        <option value="2" selected="@(Model.SelectedCategories.Contains(2) ? "selected" : null)">Bücher</option>
+                        <option value="3" selected="@(Model.SelectedCategories.Contains(3) ? "selected" : null)">Kleidung</option>
+                    </select>
+
+                </div>
+                <br />
+                <br />
+
+
+                <h3>Radio Button</h3>
+                <div class="container text-black-50 fw-bold">
+                <label>
+                    <input type="radio" asp-for="RadioStatus" value="Inaktiv" />
+                    Inaktiv
+                </label>
+                <label>
+                    <input type="radio" asp-for="RadioStatus" value="Aktiv" />
+                    Aktiv
+                </label>
+                <label>
+                    <input type="radio" asp-for="RadioStatus" value="Hyperaktiv" />
+                    Hyperaktiv
+                </label>
+                </div>                  
+            </td>
+            <td><div class="container column-gap-sm-4"></div></td>
+
+                <!--############### Spalte 7 ####################-->
+            <td valign="top">
+                <br />
+                <h3>File</h3>
+                <div>
+                    <input type="file" asp-for="FileInput" />
+                </div>
+                <br />
+                    
+                <h3>Image-Button</h3>
+                <div>
+                    <input type="image" asp-for="ImageInput" src="@Model.ImageInput" alt="@Model.ImageInput" />
+                    @Model.ImageInput
+                </div>
+                <br /><br />
+
+
+                <h3>Reset</h3>
+                <input type="reset" name="Reset" value="Reset" />
+                <br />
+                <br />
+
+                <h3>Range</h3>
+                <input type="range" asp-for="Range" min="0" max="100" step="1" class="form-range" />
+                <br />
+                <br />  
+                        
+                <h3>Color</h3>
+                <div>
+                    <input type="color" asp-for="ColorSelected" />
+                </div>
+            </td>
+            <td><div class="container column-gap-sm-4"></div></td>
+
+                <!--############### Spalte 9 ####################-->
+            <td>
+                <h3>DateTime Local</h3>
+                <input type="datetime-local" name="DateTimeLocal" />
+                <br /><br />
+                    
+                <h3>Email</h3>
+                <input type="email" name="Email" />
+                <br /><br />
+
+                <h3>Month</h3>
+                <input type="month" name="Month" />
+                <br /><br />
+
+                <h3>Search</h3>
+                <input type="search" name="Search" />
+                <br /><br />
+
+                <h3>Tel-Number</h3>
+                <input type="tel" name="TelNumber" />
+                <br /><br />
+
+                <h3>URL</h3>
+                <input type="url" name="Url" />
+                <br /><br />
+
+                <h3>Week</h3>
+                <input type="week" name="Week" />
+            </td>            
+        </tr>
+
+            <!--############### Submit ####################-->
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <br />
+                <div class="container">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
+
+<!--################################################################-->
+
+<br />
+<br />
+
+<table class="table-striped" cellpadding="10">
+    <thead>
+        <tr>
+            <th class="col-1">Name</th>
+            <th class="col-1">Password</th>
+            <th class="col-1">Number</th>
+            <th class="col-1"></th>
+            <th class="col-2">Date</th>
+            <th class="col-2">Time</th>
+            <th class="col-2">DateTime</th>      
+            <th class="col-1"></th>
+            <th class="col-2">Single-Check</th>
+            <th class="col-2">Multi-Check</th>
+            <th class="col-1"></th>
+            <th class="col-2">Single-Select</th>
+            <th class="col-2">Multi-Select</th>        
+        </tr>
+    </thead>
+    @{
+        var multiCheck = "";
+        if (Model.SelectedIds != null)
+        {
+            foreach (var item in Model.SelectedIds) multiCheck += (item.ToString() + ", ");
+        }
+
+        var multiCategories = "";
+        if (Model.SelectedCategories != null)
+        {
+            foreach (var item in Model.SelectedCategories) multiCategories += (item.ToString() + ", ");
+        }
+    }
+    <tbody>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Password</td>
+            <td>@Model.Number</td>
+            <td></td>
+            <td>@Model.BirthDate.ToString("yyyy-MM-dd")</td>
+            <td>@Model.Time.ToString("t")</td>
+            <td>@Model.DateTime</td>    
+            <td></td>
+            <td>@Model.IsSubscribed</td>
+            <td>@multiCheck</td>
+            <td></td>
+            <td>@Model.CategoryId</td>
+            <td>@multiCategories</td>       
+        </tr>
+    </tbody>
+</table>
+
+
+<br />
+<br />
+
+<table class="table-striped" cellpadding="10">
+    <thead>
+        <tr>
+            <th class="col-2">Radio</th>
+            <th></th>
+            <th class="col-3">File</th>
+            <th class="col-3">Image</th>
+            <th></th>
+
+            <th class="col-2">Range</th>
+            <th class="col-2">Color</th>
+        </tr>
+    </thead>
+    @{
+    }
+    <tbody>
+        <tr>
+            <td>@Model.RadioStatus</td>
+            <td> </td>
+            <td>@Model.FileInput</td>
+            <td>@Model.ImageInput</td>
+            <td></td>
+
+            <td>@Model.Range</td>
+            <td>@Model.ColorSelected</td>
+        </tr>
+    </tbody>
+</table>
