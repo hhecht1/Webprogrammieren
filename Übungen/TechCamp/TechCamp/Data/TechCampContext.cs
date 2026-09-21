@@ -20,7 +20,6 @@ namespace TechCamp.Data
         public DbSet<Dozent> Dozenten => Set<Dozent>();
         public DbSet<KursTeilnehmer> KursTeilnehmer => Set<KursTeilnehmer>();
         public DbSet<KursDozent> KursDozenten => Set<KursDozent>();
-        public DbSet<Status> Status => Set<Status>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

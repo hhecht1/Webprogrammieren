@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TechChamp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+638c683f0ada1db2a857dfbf39b478d5c79035ea")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b26fe521733d394600c8ce2725d5ccd4297ac53c")]
 [assembly: System.Reflection.AssemblyProductAttribute("TechChamp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TechChamp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

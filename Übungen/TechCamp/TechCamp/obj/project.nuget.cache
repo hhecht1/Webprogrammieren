@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9rOwlW4QzYc=",
+  "dgSpecHash": "jZpGqvlzKHc=",
   "success": true,
   "projectFilePath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Übungen\\TechCamp\\TechCamp\\TechChamp.csproj",
   "expectedPackageFiles": [
@@ -24,11 +24,7 @@
     "C:\\Users\\helge12\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.12\\microsoft.entityframeworkcore.relational.10.0.12.nupkg.sha512",
     "C:\\Users\\helge12\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\10.0.12\\microsoft.entityframeworkcore.sqlserver.10.0.12.nupkg.sha512",
     "C:\\Users\\helge12\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\10.0.12\\microsoft.entityframeworkcore.tools.10.0.12.nupkg.sha512",
-    "C:\\Users\\helge12\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.12\\microsoft.extensions.configuration.10.0.12.nupkg.sha512",
-    "C:\\Users\\helge12\\.nuget\\packages\\microsoft.extensions.configuration.environmentvariables\\10.0.12\\microsoft.extensions.configuration.environmentvariables.10.0.12.nupkg.sha512",
-    "C:\\Users\\helge12\\.nuget\\packages\\microsoft.extensions.configuration.json\\10.0.12\\microsoft.extensions.configuration.json.10.0.12.nupkg.sha512",
     "C:\\Users\\helge12\\.nuget\\packages\\microsoft.extensions.dependencymodel\\10.0.12\\microsoft.extensions.dependencymodel.10.0.12.nupkg.sha512",
-    "C:\\Users\\helge12\\.nuget\\packages\\microsoft.extensions.options\\10.0.12\\microsoft.extensions.options.10.0.12.nupkg.sha512",
     "C:\\Users\\helge12\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.16.0\\microsoft.identitymodel.abstractions.8.16.0.nupkg.sha512",
     "C:\\Users\\helge12\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.16.0\\microsoft.identitymodel.jsonwebtokens.8.16.0.nupkg.sha512",
     "C:\\Users\\helge12\\.nuget\\packages\\microsoft.identitymodel.logging\\8.16.0\\microsoft.identitymodel.logging.8.16.0.nupkg.sha512",
@@ -51,54 +47,5 @@
     "C:\\Users\\helge12\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.18\\system.security.cryptography.pkcs.9.0.18.nupkg.sha512",
     "C:\\Users\\helge12\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.18\\system.security.cryptography.protecteddata.9.0.18.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1510",
-      "level": "Warning",
-      "message": "PackageReference Microsoft.Extensions.Configuration wird nicht gekürzt. Dieses Paket ist automatisch verfügbar und muss nicht explizit referenziert werden. Entfernen Sie das PackageReference-Element.",
-      "projectPath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Übungen\\TechCamp\\TechCamp\\TechChamp.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Übungen\\TechCamp\\TechCamp\\TechChamp.csproj",
-      "libraryId": "Microsoft.Extensions.Configuration",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1510",
-      "level": "Warning",
-      "message": "PackageReference Microsoft.Extensions.Configuration.EnvironmentVariables wird nicht gekürzt. Dieses Paket ist automatisch verfügbar und muss nicht explizit referenziert werden. Entfernen Sie das PackageReference-Element.",
-      "projectPath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Übungen\\TechCamp\\TechCamp\\TechChamp.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Übungen\\TechCamp\\TechCamp\\TechChamp.csproj",
-      "libraryId": "Microsoft.Extensions.Configuration.EnvironmentVariables",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1510",
-      "level": "Warning",
-      "message": "PackageReference Microsoft.Extensions.Configuration.Json wird nicht gekürzt. Dieses Paket ist automatisch verfügbar und muss nicht explizit referenziert werden. Entfernen Sie das PackageReference-Element.",
-      "projectPath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Übungen\\TechCamp\\TechCamp\\TechChamp.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Übungen\\TechCamp\\TechCamp\\TechChamp.csproj",
-      "libraryId": "Microsoft.Extensions.Configuration.Json",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1510",
-      "level": "Warning",
-      "message": "PackageReference Microsoft.Extensions.Options wird nicht gekürzt. Dieses Paket ist automatisch verfügbar und muss nicht explizit referenziert werden. Entfernen Sie das PackageReference-Element.",
-      "projectPath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Übungen\\TechCamp\\TechCamp\\TechChamp.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\helge12\\Desktop\\c#\\Webprogrammieren\\Übungen\\TechCamp\\TechCamp\\TechChamp.csproj",
-      "libraryId": "Microsoft.Extensions.Options",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }
