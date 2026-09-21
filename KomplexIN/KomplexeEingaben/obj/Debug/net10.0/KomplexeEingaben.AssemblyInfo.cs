@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KomplexeEingaben")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a9ce62ffb0f455af394bf430247599bd098d7b98")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9032538a04c15e0221315d2b8a79f1a9ad2ef5bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("KomplexeEingaben")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KomplexeEingaben")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
