@@ -1,0 +1,110 @@
+@model TechCamp.ViewModels.KursEditVM
+@using TechCamp.Models
+
+@{
+    ViewData["Title"] = "Kurs bearbeiten";
+}
+
+<h1>Kurs bearbeiten</h1>
+
+<form asp-action="Edit" method="post">
+
+    <input asp-for="Id" type="hidden" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Titel" class="form-label"></label>
+        <input asp-for="Titel" class="form-control" />
+        <span asp-validation-for="Titel" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Beschreibung" class="form-label"></label>
+        <textarea asp-for="Beschreibung" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Beschreibung" class="text-danger"></span>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="Kursart" class="form-label"></label>
+
+            <select asp-for="Kursart" asp-items="Html.GetEnumSelectList<Kursart>()" class="form-select">
+            </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="RaumId" class="form-label">
+                Raum
+            </label>
+
+            <select asp-for="RaumId" asp-items="Model.RaumeListe" class="form-select">
+            </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="MaxTeilnehmer" class="form-label"></label>
+
+            <input asp-for="MaxTeilnehmer" type="number" min="1" max="100" class="form-control" />
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="StartDatum" class="form-label"></label>
+
+            <input asp-for="StartDatum" type="date" class="form-control" />
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="EndDatum" class="form-label"></label>
+
+            <input asp-for="EndDatum" type="date" class="form-control" />
+        </div>
+
+    </div>
+
+    <div class="mb-3 form-check">
+
+        <input asp-for="Wiederholung" class="form-check-input" />
+
+        <label asp-for="Wiederholung" class="form-check-label"></label>
+
+    </div>
+
+    <fieldset class="mb-3">
+
+        <legend class="h5">Dozenten</legend>
+
+        @foreach (var d in Model.AlleDozenten)
+        {
+            <div class="form-check">
+
+                <input type="checkbox" class="form-check-input" name="DozentIds " value="@d.Id"
+                @(Model.DozentIds.Contains(d.Id) ? "checked" : "") />
+
+                <label class="form-check-label">
+                    @d.Vorname @d.Nachname – @d.Fachgebiet
+                </label>
+
+            </div>
+        }
+
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">
+        Änderungen speichern
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Abbrechen
+    </a>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using TechCamp.Data;
 using TechCamp.Models;
 using TechCamp.ViewModels;
+using System.Linq;
 using System.Reflection;
 
 
@@ -20,6 +21,8 @@ public class KurseController : Controller
         _db = db;
         _logger = logger;
     }
+
+    [HttpGet]
     public async Task<IActionResult> Index()
     {
         var kurse = await _db.Kurse
@@ -31,6 +34,7 @@ public class KurseController : Controller
         return View(kurse);
     }
 
+    [HttpGet]
     public async Task<IActionResult> Details(int Id)
 
     {
@@ -47,9 +51,23 @@ public class KurseController : Controller
         return View(kurs);
     }
 
-    public IActionResult Create()
+    [HttpGet]
+    public async Task<IActionResult> Create()
     {
-        var vm = new KursCreateVM();
+        var vm = new KursCreateVM
+        {
+            RaumeListe = new SelectList(
+                await _db.Räume
+                    .OrderBy(r => r.Bezeichnung)
+                    .ToListAsync(),
+                "Id",
+                "Bezeichnung"),
+
+            AlleDozenten = await _db.Dozenten
+                .OrderBy(d => d.Nachname)
+                .ToListAsync()
+        };
+
         return View(vm);
     }
 
@@ -58,9 +76,21 @@ public class KurseController : Controller
     {
         if (!ModelState.IsValid)
         {
-            await Task.CompletedTask;
+            vM.RaumeListe = new SelectList(
+                await _db.Räume
+                    .OrderBy(r => r.Bezeichnung)
+                    .ToListAsync(),
+                "Id",
+                "Bezeichnung",
+                vM.RaumId);
+
+            vM.AlleDozenten = await _db.Dozenten
+                .OrderBy(d => d.Nachname)
+                .ToListAsync();
+
             return View(vM);
         }
+
         var kurs = new Kurs
         {
             Titel = vM.Titel,
@@ -68,39 +98,73 @@ public class KurseController : Controller
             Kursart = vM.Kursart,
             MaxTeilnehmer = vM.MaxTeilnehmer,
             Wiederholung = vM.Wiederholung,
-            StartDatum = vM.StartDatum,
-            EndDatum = vM.EndDatum,
+            StartDatum = vM.StartDatum.ToDateTime(TimeOnly.MinValue),
+            EndDatum = vM.EndDatum.ToDateTime(TimeOnly.MinValue),
             RaumId = vM.RaumId
         };
+
+        foreach (var dozentId in vM.DozentIds)
+        {
+            kurs.KursDozenten.Add(new KursDozent
+            {
+                DozentId = dozentId
+            });
+        }
+
         _db.Kurse.Add(kurs);
         await _db.SaveChangesAsync();
+
+        _logger.LogInformation(
+            "Kurs {KursId} ({Titel}) wurde erstellt.",
+            kurs.Id,
+            kurs.Titel);
+
         return RedirectToAction(nameof(Index));
     }
 
+    [HttpGet]
     public async Task<IActionResult> Edit(int Id)
     {
         var kurs = await _db.Kurse
-        .Include(k => k.Dozent)
-        .FirstOrDefaultAsync(k => k.Id == Id);
+            .Include(k => k.KursDozenten)
+            .FirstOrDefaultAsync(k => k.Id == Id);
+
         if (kurs == null)
             return NotFound();
 
+        var raume = await _db.Räume
+            .OrderBy(r => r.Bezeichnung)
+            .ToListAsync();
+        var dozenten = await _db.Dozenten
+            .OrderBy(d => d.Nachname)
+            .ToListAsync();
 
         var vM = new KursEditVM
         {
+            Id = kurs.Id,
             Titel = kurs.Titel,
             Beschreibung = kurs.Beschreibung,
             Kursart = kurs.Kursart,
             MaxTeilnehmer = kurs.MaxTeilnehmer,
             Wiederholung = kurs.Wiederholung,
-            StartDatum = kurs.StartDatum,
-            EndDatum = kurs.EndDatum,
+            StartDatum = DateOnly.FromDateTime(kurs.StartDatum),
+            EndDatum = DateOnly.FromDateTime(kurs.EndDatum),
             RaumId = kurs.RaumId,
-
-            DozentId = kurs.KursDozenten
-            .Select(kd => kd.DozentId)
-            .ToList()
+            DozentIds = kurs.KursDozenten
+                .Select(kd => kd.DozentId)
+                .ToList(),
+            RaumeListe = new SelectList(
+                await _db.Räume
+                    .OrderBy(r => r.Bezeichnung)
+                    .ToListAsync(),
+                "Id",
+                "Bezeichnung",
+                kurs.RaumId),
+            AlleDozenten = await _db.Dozenten
+                .OrderBy(d => d.Nachname)
+                .ToListAsync()
         };
+
         return View(vM);
     }
 
@@ -109,7 +173,18 @@ public class KurseController : Controller
     {
         if (!ModelState.IsValid)
         {
-            await Task.CompletedTask;
+            vM.RaumeListe = new SelectList(
+           await _db.Räume
+               .OrderBy(r => r.Bezeichnung)
+               .ToListAsync(),
+           "Id",
+           "Bezeichnung",
+           vM.RaumId);
+
+            vM.AlleDozenten = await _db.Dozenten
+                .OrderBy(d => d.Nachname)
+                .ToListAsync();
+
             return View(vM);
         }
         var kurs = await _db.Kurse
@@ -124,12 +199,13 @@ public class KurseController : Controller
         kurs.Kursart = vM.Kursart;
         kurs.MaxTeilnehmer = vM.MaxTeilnehmer;
         kurs.Wiederholung = vM.Wiederholung;
-        kurs.StartDatum = vM.StartDatum;
-        kurs.EndDatum = vM.EndDatum;
+        kurs.StartDatum = vM.StartDatum.ToDateTime(TimeOnly.MinValue);
+        kurs.EndDatum = vM.EndDatum.ToDateTime(TimeOnly.MinValue);
         kurs.RaumId = vM.RaumId;
 
-        kurs.KursDozenten.Clear();
-        foreach (var dozentId in vM.DozentId)
+        _db.KursDozenten.RemoveRange(kurs.KursDozenten);
+
+        foreach (var dozentId in vM.DozentIds)
         {
             kurs.KursDozenten.Add(new KursDozent
             {
@@ -140,7 +216,11 @@ public class KurseController : Controller
 
         _db.Kurse.Update(kurs);
         await _db.SaveChangesAsync();
+
+        _logger.LogInformation("Kurs mit Id {KursId} wurde bearbeitet.", kurs.Id);
         return RedirectToAction(nameof(Index));
+
+
     }
 
     public async Task<IActionResult> Delete(int Id)
@@ -149,7 +229,7 @@ public class KurseController : Controller
         if (kurs == null)
             return NotFound();
 
-        bool hatAngemeldeteTeilnehmer = kurs.Teilnehmer.Any();
+        bool hatAngemeldeteTeilnehmer = kurs.KursTeilnehmer.Any();
         if (hatAngemeldeteTeilnehmer)
             return BadRequest("Der Kurs hat angemeldete Teilnehmer und kann nicht gelöscht werden.");
 

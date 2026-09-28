@@ -1,0 +1,85 @@
+@model IEnumerable<TechCamp.Models.Kurs>
+
+@{
+    ViewData["Title"] = "Kurse";
+}
+
+<h1>Kurse</h1>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Neuer Kurs
+    </a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Titel</th>
+            <th>Kursart</th>
+            <th>Zeitraum</th>
+            <th>Raum</th>
+            <th>Teilnehmer</th>
+            <th>Aktionen</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var k in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-route-id="@k.Id">
+                        @k.Titel
+                    </a>
+                </td>
+
+                <td>@k.Kursart</td>
+
+                <td>
+                    @k.StartDatum – @k.EndDatum
+                </td>
+
+                <td>
+                    @k.Raum.Bezeichnung
+                </td>
+
+                <td>
+                    @k.KursTeilnehmer.Count(
+                        kt => kt.Status == TechCamp.Models.Status.Angemeldet
+                    )
+                    /
+                    @k.MaxTeilnehmer
+
+                    @if (k.KursTeilnehmer.Count(
+                        kt => kt.Status == TechCamp.Models.Status.Angemeldet
+                    ) >= k.MaxTeilnehmer)
+                    {
+                        <span class="badge bg-danger">Voll</span>
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@k.Id" class="btn btn-sm btn-outline-primary">
+                        Edit
+                    </a>
+
+                    <form asp-action="Delete" asp-route-id="@k.Id" method="post" class="d-inline"
+                          onsubmit="return confirm('Kurs wirklich löschen?');">
+
+                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                            Löschen
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

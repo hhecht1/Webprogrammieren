@@ -1,0 +1,148 @@
+@model TechCamp.Models.Kurs
+
+@{
+    ViewData["Title"] = Model.Titel;
+}
+
+<h1>@Model.Titel</h1>
+
+<div class="card mb-4">
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">Beschreibung</dt>
+            <dd class="col-sm-9">@Model.Beschreibung</dd>
+
+            <dt class="col-sm-3">Kursart</dt>
+            <dd class="col-sm-9">@Model.Kursart</dd>
+
+            <dt class="col-sm-3">Zeitraum</dt>
+            <dd class="col-sm-9">
+                @Model.StartDatum – @Model.EndDatum
+            </dd>
+
+            <dt class="col-sm-3">Raum</dt>
+            <dd class="col-sm-9">
+                @Model.Raum.Bezeichnung (@Model.Raum.Gebäude)
+            </dd>
+
+            <dt class="col-sm-3">Max. Teilnehmer</dt>
+            <dd class="col-sm-9">@Model.MaxTeilnehmer</dd>
+
+            <dt class="col-sm-3">Wiederholung</dt>
+            <dd class="col-sm-9">
+                @(Model.Wiederholung ? "Ja" : "Nein")
+            </dd>
+
+        </dl>
+
+    </div>
+</div>
+
+
+<h4>Dozenten</h4>
+
+<table class="table table-sm mb-4">
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Fachgebiet</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var kd in Model.KursDozenten)
+        {
+            <tr>
+                <td>
+                    @kd.Dozent.Vorname @kd.Dozent.Nachname
+                </td>
+
+                <td>
+                    @kd.Dozent.Fachgebiet
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+<h4>Teilnehmer</h4>
+
+<table class="table table-sm">
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>E-Mail</th>
+            <th>Status</th>
+            <th>Anmeldung</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var kt in Model.KursTeilnehmer)
+        {
+            <tr>
+
+                <td>
+                    @kt.Teilnehmer.Vorname
+                    @kt.Teilnehmer.Nachname
+                </td>
+
+                <td>
+                    @kt.Teilnehmer.Email
+                </td>
+
+                <td>
+
+                    @switch (kt.Status)
+                    {
+                        case TechCamp.Models.Status.Angemeldet:
+
+                            <span class="badge bg-success">
+                                @kt.Status
+                            </span>
+
+                            break;
+
+                        case TechCamp.Models.Status.Abgesagt:
+
+                            <span class="badge bg-warning text-dark">
+                                @kt.Status
+                            </span>
+
+                            break;
+
+                        case TechCamp.Models.Status.Abgeschlossen:
+
+                            <span class="badge bg-secondary">
+                                @kt.Status
+                            </span>
+
+                            break;
+                    }
+
+                </td>
+
+                <td>
+                    @kt.AnmeldeDatum
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+<a asp-action="Index" class="btn btn-secondary">
+    Zurück
+</a>
