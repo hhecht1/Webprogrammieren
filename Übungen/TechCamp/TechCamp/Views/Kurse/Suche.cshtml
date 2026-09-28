@@ -68,14 +68,17 @@
 
     </div>
 
-    <div class="form-check mb-3">
+    <div class="mb-3">
+        <div class="form-check">
+            @Html.CheckBoxFor(
+                m => m.Item2.NurPlätzeFrei,
+                new { @class = "form-check-input" }
+            )
 
-        <input asp-for="@filter.NurPlätzeFrei" class="form-check-input" />
-
-        <label asp-for="@filter.NurPlätzeFrei" class="form-check-label">
-            Nur Kurse mit freien Plätzen
-        </label>
-
+            <label class="form-check-label" for="Item2_NurPlätzeFrei">
+                Nur Kurse mit freien Plätzen
+            </label>
+        </div>
     </div>
 
     <button type="submit" class="btn btn-primary">

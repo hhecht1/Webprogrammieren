@@ -1,0 +1,57 @@
+@model TechCamp.Models.Dozent
+
+@{
+    ViewData["Title"] = "Neuer Dozent";
+}
+
+<h1>Neuen Dozenten hinzufügen</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+
+        <form asp-action="Create" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Vorname" class="form-label"></label>
+
+                <input asp-for="Vorname" class="form-control" />
+
+                <span asp-validation-for="Vorname" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Nachname" class="form-label"></label>
+
+                <input asp-for="Nachname" class="form-control" />
+
+                <span asp-validation-for="Nachname" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Fachgebiet" class="form-label"></label>
+
+                <input asp-for="Fachgebiet" class="form-control" />
+
+                <span asp-validation-for="Fachgebiet" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Speichern
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                Abbrechen
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

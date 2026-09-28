@@ -37,9 +37,9 @@ public class KursEditVM
     public List<int> DozentIds { get; set; } = new();
 
     // Daten für die Dropdowns / Checkboxen
-    public SelectList RaumeListe { get; set; } = null!;
+    public SelectList? RaumeListe { get; set; } = null!;
 
-    public List<Dozent> AlleDozenten { get; set; } = new();
+    public List<Dozent>? AlleDozenten { get; set; } = new();
 
     public List<Kursart> Kursarten { get; set; }
         = Enum.GetValues<Kursart>().ToList();

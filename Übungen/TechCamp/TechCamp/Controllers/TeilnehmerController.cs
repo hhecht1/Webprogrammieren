@@ -155,6 +155,70 @@ public class TeilnehmerController : Controller
 
         return RedirectToAction(nameof(Index));
     }
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(Teilnehmer teilnehmer)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(teilnehmer);
+        }
+
+        _db.Teilnehmer.Add(teilnehmer);
+        await _db.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var teilnehmer = await _db.Teilnehmer
+            .Include(t => t.KursTeilnehmer)
+            .ThenInclude(kt => kt.Kurs)
+            .FirstOrDefaultAsync(t => t.Id == id);
+
+        if (teilnehmer == null)
+        {
+            return NotFound();
+        }
+
+        return View(teilnehmer);
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        var teilnehmer = await _db.Teilnehmer
+            .Include(t => t.KursTeilnehmer)
+            .FirstOrDefaultAsync(t => t.Id == id);
+
+        if (teilnehmer == null)
+        {
+            return NotFound();
+        }
+
+        if (teilnehmer.KursTeilnehmer.Any())
+        {
+            TempData["Error"] =
+                "Der Teilnehmer kann nicht gelöscht werden, da er noch Kursanmeldungen besitzt.";
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        _db.Teilnehmer.Remove(teilnehmer);
+        await _db.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
+    }
+
+
 
 
 

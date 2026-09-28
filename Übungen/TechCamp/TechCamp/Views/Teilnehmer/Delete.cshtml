@@ -1,0 +1,64 @@
+@model TechCamp.Models.Teilnehmer
+
+@{
+    ViewData["Title"] = "Teilnehmer löschen";
+}
+
+<h1>Teilnehmer löschen</h1>
+
+<div class="alert alert-warning">
+    Möchtest du diesen Teilnehmer wirklich löschen?
+</div>
+
+<dl class="row">
+
+    <dt class="col-sm-3">
+        Vorname
+    </dt>
+    <dd class="col-sm-9">
+        @Model.Vorname
+    </dd>
+
+    <dt class="col-sm-3">
+        Nachname
+    </dt>
+    <dd class="col-sm-9">
+        @Model.Nachname
+    </dd>
+
+    <dt class="col-sm-3">
+        E-Mail
+    </dt>
+    <dd class="col-sm-9">
+        @Model.Email
+    </dd>
+
+</dl>
+
+@if (Model.KursTeilnehmer.Any())
+{
+    <div class="alert alert-danger">
+        Dieser Teilnehmer ist noch bei einem oder mehreren Kursen eingetragen
+        und kann deshalb nicht gelöscht werden.
+    </div>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Zurück
+    </a>
+}
+else
+{
+    <form asp-action="DeleteConfirmed" asp-route-id="@Model.Id" method="post">
+
+        @Html.AntiForgeryToken()
+
+        <button type="submit" class="btn btn-danger">
+            Endgültig löschen
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Abbrechen
+        </a>
+
+    </form>
+}

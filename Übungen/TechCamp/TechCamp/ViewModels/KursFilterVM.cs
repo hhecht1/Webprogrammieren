@@ -10,7 +10,7 @@ public class KursFilterVM
     public Kursart? Kursart { get; set; }
     public DateOnly? VonDatum { get; set; }
     public DateOnly? BisDatum { get; set; }
-    public bool? NurPlätzeFrei { get; set; }
+    public bool NurPlätzeFrei { get; set; }
     public int RaumId { get; set; }
 
     public IEnumerable<SelectListItem> RaumeListe { get; set; } = Enumerable.Empty<SelectListItem>();

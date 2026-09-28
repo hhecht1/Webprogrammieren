@@ -14,13 +14,13 @@ public class KurseController : Controller
 {
 
     private readonly TechCampContext _db;
-    private readonly ILogger<KurseController> _logger;
+    // private readonly ILogger<KurseController> _logger;
 
-    public KurseController(TechCampContext db, ILogger<KurseController> logger)
-    {
-        _db = db;
-        _logger = logger;
-    }
+    // public KurseController(TechCampContext db, ILogger<KurseController> logger)
+    // {
+    //     _db = db;
+    //     _logger = logger;
+    // }
 
     [HttpGet]
     public async Task<IActionResult> Index()
@@ -114,10 +114,10 @@ public class KurseController : Controller
         _db.Kurse.Add(kurs);
         await _db.SaveChangesAsync();
 
-        _logger.LogInformation(
-            "Kurs {KursId} ({Titel}) wurde erstellt.",
-            kurs.Id,
-            kurs.Titel);
+        // _logger.LogInformation(
+        //     "Kurs {KursId} ({Titel}) wurde erstellt.",
+        //     kurs.Id,
+        //     kurs.Titel);
 
         return RedirectToAction(nameof(Index));
     }
@@ -169,58 +169,60 @@ public class KurseController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int Id, KursEditVM vM)
     {
         if (!ModelState.IsValid)
         {
-            vM.RaumeListe = new SelectList(
-           await _db.Räume
-               .OrderBy(r => r.Bezeichnung)
-               .ToListAsync(),
-           "Id",
-           "Bezeichnung",
-           vM.RaumId);
+            var fehler = ModelState
+                .Where(x => x.Value?.Errors.Count > 0)
+                .SelectMany(x => x.Value!.Errors.Select(e =>
+                    $"{x.Key}: {e.ErrorMessage}"))
+                .ToList();
 
-            vM.AlleDozenten = await _db.Dozenten
-                .OrderBy(d => d.Nachname)
-                .ToListAsync();
-
-            return View(vM);
+            return Content(
+                "MODELSTATE UNGÜLTIG:\n" +
+                string.Join("\n", fehler));
         }
+
         var kurs = await _db.Kurse
-        .Include(k => k.KursDozenten)
-        .FirstOrDefaultAsync(k => k.Id == Id);
+            .Include(k => k.KursDozenten)
+            .FirstOrDefaultAsync(k => k.Id == Id);
 
         if (kurs == null)
-            return NotFound();
+        {
+            return Content($"Kurs mit Id {Id} wurde nicht gefunden.");
+        }
 
         kurs.Titel = vM.Titel;
         kurs.Beschreibung = vM.Beschreibung;
         kurs.Kursart = vM.Kursart;
         kurs.MaxTeilnehmer = vM.MaxTeilnehmer;
         kurs.Wiederholung = vM.Wiederholung;
-        kurs.StartDatum = vM.StartDatum.ToDateTime(TimeOnly.MinValue);
-        kurs.EndDatum = vM.EndDatum.ToDateTime(TimeOnly.MinValue);
+        kurs.StartDatum =
+            vM.StartDatum.ToDateTime(TimeOnly.MinValue);
+        kurs.EndDatum =
+            vM.EndDatum.ToDateTime(TimeOnly.MinValue);
         kurs.RaumId = vM.RaumId;
 
         _db.KursDozenten.RemoveRange(kurs.KursDozenten);
 
-        foreach (var dozentId in vM.DozentIds)
+        foreach (var dozentId in vM.DozentIds ?? new List<int>())
         {
-            kurs.KursDozenten.Add(new KursDozent
+            _db.KursDozenten.Add(new KursDozent
             {
                 KursId = kurs.Id,
                 DozentId = dozentId
             });
         }
 
-        _db.Kurse.Update(kurs);
         await _db.SaveChangesAsync();
 
-        _logger.LogInformation("Kurs mit Id {KursId} wurde bearbeitet.", kurs.Id);
+        // _logger.LogInformation(
+        //     "Kurs mit Id {KursId} wurde bearbeitet.",
+        //     kurs.Id);
+
         return RedirectToAction(nameof(Index));
-
-
     }
 
     public async Task<IActionResult> Delete(int Id)
@@ -269,35 +271,7 @@ public class KurseController : Controller
             query = query.Where(k => k.KursTeilnehmer.Count(kt => kt.Status == Status.Angemeldet) < k.MaxTeilnehmer);
 
         var kurse = await query.OrderBy(k => k.StartDatum).ToListAsync();
-        return View(kurse);
-    }
-
-    [HttpGet]
-    public async Task<IActionResult> DozentenÜbersicht()
-    {
-        var daten = await _db.Dozenten
-        .LeftJoin(
-            _db.KursDozenten,
-            d => d.Id,
-            kd => kd.DozentId,
-            (d, kd) => new { Dozent = d, KursDozenten = kd }
-        )
-      .GroupBy(x => new
-      {
-          x.Dozent.Id,
-          x.Dozent.Vorname,
-          x.Dozent.Nachname,
-          x.Dozent.Fachgebiet,
-      })
-      .Select(g => new DozentÜbersichtVM
-      {
-          Vorname = g.Key.Vorname,
-          Nachname = g.Key.Nachname,
-          Fachgebiet = g.Key.Fachgebiet,
-          KursAnzahl = g.Count(x => x.KursDozenten != null)
-      })
-        .OrderBy(d => d.Nachname)
-        .ToListAsync();
-        return View(daten);
+        return View(Tuple.Create(kurse, filter));
     }
 }
+

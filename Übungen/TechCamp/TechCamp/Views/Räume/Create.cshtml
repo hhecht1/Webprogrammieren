@@ -1,0 +1,57 @@
+@model TechCamp.Models.Raum
+
+@{
+    ViewData["Title"] = "Neuer Raum";
+}
+
+<h1>Neuen Raum hinzufügen</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+
+        <form asp-action="Create" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Bezeichnung" class="form-label"></label>
+
+                <input asp-for="Bezeichnung" class="form-control" />
+
+                <span asp-validation-for="Bezeichnung" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Gebäude" class="form-label"></label>
+
+                <input asp-for="Gebäude" class="form-control" />
+
+                <span asp-validation-for="Gebäude" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Kapazität" class="form-label"></label>
+
+                <input asp-for="Kapazität" type="number" min="1" class="form-control" />
+
+                <span asp-validation-for="Kapazität" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Speichern
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                Abbrechen
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

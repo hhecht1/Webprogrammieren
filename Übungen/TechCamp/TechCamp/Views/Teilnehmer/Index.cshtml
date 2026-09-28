@@ -32,10 +32,17 @@
                     <a asp-action="Details" asp-route-id="@teilnehmer.Id" class="btn btn-sm btn-outline-primary">
                         Details
                     </a>
-                </td>
-            </tr>
-        }
 
-    </tbody>
+                    <a asp-action="Delete" asp-route-id="@teilnehmer.Id" class="btn btn-sm btn-outline-danger">
+                        Löschen
+                    </a>
+                </tr>
+            }
 
-</table>
+        </tbody>
+
+    </table>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Teilnehmer hinzufügen</a>
+    </p>

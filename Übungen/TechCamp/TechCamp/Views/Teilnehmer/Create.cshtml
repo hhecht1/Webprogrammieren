@@ -1,0 +1,45 @@
+@model TechCamp.Models.Teilnehmer
+
+@{
+    ViewData["Title"] = "Teilnehmer hinzufügen";
+}
+
+<h1>Teilnehmer hinzufügen</h1>
+
+<hr />
+
+<form asp-action="Create" method="post">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Vorname" class="form-label"></label>
+        <input asp-for="Vorname" class="form-control" />
+        <span asp-validation-for="Vorname" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Nachname" class="form-label"></label>
+        <input asp-for="Nachname" class="form-control" />
+        <span asp-validation-for="Nachname" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Teilnehmer speichern
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Abbrechen
+    </a>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
