@@ -143,6 +143,19 @@
 </table>
 
 
+<a asp-controller="Teilnehmer" asp-action="Anmelden" asp-route-kursId="@Model.Id" class="btn btn-success">
+    Teilnehmer anmelden
+</a>
+
+<a asp-controller="Kurse" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+    Bearbeiten
+</a>
+
+<a asp-action="Index" class="btn btn-secondary">
+    Zurück
+</a>
+
+
 <a asp-action="Index" class="btn btn-secondary">
     Zurück
 </a>

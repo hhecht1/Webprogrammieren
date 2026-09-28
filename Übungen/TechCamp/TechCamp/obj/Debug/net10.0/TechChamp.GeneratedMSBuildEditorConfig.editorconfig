@@ -47,12 +47,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3Vyc2VcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/helge12/Desktop/c\#/Webprogrammieren/Übungen/TechCamp/TechCamp/Views/Kurse/DozentenÜbersicht.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3Vyc2VcRG96ZW50ZW7DnGJlcnNpY2h0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/helge12/Desktop/c\#/Webprogrammieren/Übungen/TechCamp/TechCamp/Views/Kurse/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3Vyc2VcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/helge12/Desktop/c\#/Webprogrammieren/Übungen/TechCamp/TechCamp/Views/Kurse/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3Vyc2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helge12/Desktop/c\#/Webprogrammieren/Übungen/TechCamp/TechCamp/Views/Kurse/Suche.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3Vyc2VcU3VjaGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/helge12/Desktop/c\#/Webprogrammieren/Übungen/TechCamp/TechCamp/Views/Shared/Error.cshtml]

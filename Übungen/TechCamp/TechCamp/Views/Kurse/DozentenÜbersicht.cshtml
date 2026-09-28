@@ -1,0 +1,51 @@
+@model IEnumerable<TechCamp.ViewModels.DozentÜbersichtVM>
+
+@{
+    ViewData["Title"] = "Dozentenübersicht";
+}
+
+<h1>Dozentenübersicht</h1>
+
+<p>
+    Alle Dozenten werden angezeigt – auch wenn sie aktuell
+    keinem Kurs zugeordnet sind.
+</p>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Fachgebiet</th>
+            <th>Anzahl Kurse</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var dozent in Model)
+        {
+            <tr>
+
+                <td>
+                    @dozent.Vorname @dozent.Nachname
+                </td>
+
+                <td>
+                    @dozent.Fachgebiet
+                </td>
+
+                <td>
+                    @dozent.KursAnzahl
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">
+    Zurück zu den Kursen
+</a>

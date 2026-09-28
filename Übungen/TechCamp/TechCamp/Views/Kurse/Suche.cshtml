@@ -1,0 +1,160 @@
+@using TechCamp.Models
+@model Tuple<List<Kurs>, TechCamp.ViewModels.KursFilterVM>
+
+@{
+    ViewData["Title"] = "Kurssuche";
+
+    var kurse = Model.Item1;
+    var filter = Model.Item2;
+}
+
+<h1>Kurssuche</h1>
+
+<form asp-action="Suche" method="get" class="mb-4">
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="@filter.Titelsuche" class="form-label">
+                Titel
+            </label>
+
+            <input asp-for="@filter.Titelsuche" class="form-control" placeholder="Kurstitel suchen..." />
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="@filter.Kursart" class="form-label">
+                Kursart
+            </label>
+
+            <select asp-for="@filter.Kursart" asp-items="Html.GetEnumSelectList<Kursart>()" class="form-select">
+
+                <option value="">Alle Kursarten</option>
+
+            </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="@filter.RaumId" class="form-label">
+                Raum
+            </label>
+
+            <select asp-for="@filter.RaumId" asp-items="@filter.RaumeListe" class="form-select">
+
+                <option value="">Alle Räume</option>
+
+            </select>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="@filter.VonDatum" class="form-label">
+                Von
+            </label>
+
+            <input asp-for="@filter.VonDatum" type="date" class="form-control" />
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="@filter.BisDatum" class="form-label">
+                Bis
+            </label>
+
+            <input asp-for="@filter.BisDatum" type="date" class="form-control" />
+        </div>
+
+    </div>
+
+    <div class="form-check mb-3">
+
+        <input asp-for="@filter.NurPlätzeFrei" class="form-check-input" />
+
+        <label asp-for="@filter.NurPlätzeFrei" class="form-check-label">
+            Nur Kurse mit freien Plätzen
+        </label>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Suchen
+    </button>
+
+    <a asp-action="Suche" class="btn btn-secondary">
+        Filter zurücksetzen
+    </a>
+
+</form>
+
+<hr />
+
+<h4>Ergebnisse (@kurse.Count)</h4>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Titel</th>
+            <th>Kursart</th>
+            <th>Zeitraum</th>
+            <th>Raum</th>
+            <th>Teilnehmer</th>
+            <th>Dozenten</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var kurs in kurse)
+        {
+            var angemeldet = kurs.KursTeilnehmer
+                .Count(kt => kt.Status == Status.Angemeldet);
+
+            <tr>
+
+                <td>
+                    @kurs.Titel
+                </td>
+
+                <td>
+                    @kurs.Kursart
+                </td>
+
+                <td>
+                    @kurs.StartDatum.ToString("dd.MM.yyyy")
+                    -
+                    @kurs.EndDatum.ToString("dd.MM.yyyy")
+                </td>
+
+                <td>
+                    @kurs.Raum?.Bezeichnung
+                </td>
+
+                <td>
+                    @angemeldet / @kurs.MaxTeilnehmer
+                </td>
+
+                <td>
+                    @foreach (var kd in kurs.KursDozenten)
+                    {
+                        <div>
+                            @kd.Dozent.Vorname @kd.Dozent.Nachname
+                        </div>
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@kurs.Id" class="btn btn-sm btn-outline-primary">
+                        Details
+                    </a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

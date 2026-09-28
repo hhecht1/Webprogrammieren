@@ -239,5 +239,65 @@ public class KurseController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    [HttpGet]
+    public async Task<IActionResult> Suche(KursFilterVM filter)
+    {
+        var query = _db.Kurse
+        .Include(k => k.Raum)
+        .Include(k => k.KursDozenten)
+            .ThenInclude(kd => kd.Dozent)
+        .Include(k => k.KursTeilnehmer)
+            .ThenInclude(kt => kt.Teilnehmer)
+        .AsQueryable();
 
+        if (!string.IsNullOrWhiteSpace(filter.Titelsuche))
+            query = query.Where(k => k.Titel.Contains(filter.Titelsuche));
+
+        if (filter.Kursart.HasValue)
+            query = query.Where(k => k.Kursart == filter.Kursart.Value);
+
+        if (filter.VonDatum.HasValue)
+            query = query.Where(k => k.StartDatum >= filter.VonDatum.Value.ToDateTime(TimeOnly.MinValue));
+
+        if (filter.BisDatum.HasValue)
+            query = query.Where(k => k.StartDatum <= filter.BisDatum.Value.ToDateTime(TimeOnly.MinValue));
+
+        if (filter.RaumId > 0)
+            query = query.Where(k => k.RaumId == filter.RaumId);
+
+        if (filter.NurPlätzeFrei == true)
+            query = query.Where(k => k.KursTeilnehmer.Count(kt => kt.Status == Status.Angemeldet) < k.MaxTeilnehmer);
+
+        var kurse = await query.OrderBy(k => k.StartDatum).ToListAsync();
+        return View(kurse);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> DozentenÜbersicht()
+    {
+        var daten = await _db.Dozenten
+        .LeftJoin(
+            _db.KursDozenten,
+            d => d.Id,
+            kd => kd.DozentId,
+            (d, kd) => new { Dozent = d, KursDozenten = kd }
+        )
+      .GroupBy(x => new
+      {
+          x.Dozent.Id,
+          x.Dozent.Vorname,
+          x.Dozent.Nachname,
+          x.Dozent.Fachgebiet,
+      })
+      .Select(g => new DozentÜbersichtVM
+      {
+          Vorname = g.Key.Vorname,
+          Nachname = g.Key.Nachname,
+          Fachgebiet = g.Key.Fachgebiet,
+          KursAnzahl = g.Count(x => x.KursDozenten != null)
+      })
+        .OrderBy(d => d.Nachname)
+        .ToListAsync();
+        return View(daten);
+    }
 }
