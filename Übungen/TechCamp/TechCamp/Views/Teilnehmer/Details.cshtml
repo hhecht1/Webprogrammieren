@@ -1,0 +1,103 @@
+@using TechCamp.Models
+@model TechCamp.Models.Teilnehmer
+
+@{
+    ViewData["Title"] = "Teilnehmerdetails";
+}
+
+<h1>@Model.Vorname @Model.Nachname</h1>
+
+<div class="card mb-4">
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">
+                Vorname
+            </dt>
+
+            <dd class="col-sm-9">
+                @Model.Vorname
+            </dd>
+
+            <dt class="col-sm-3">
+                Nachname
+            </dt>
+
+            <dd class="col-sm-9">
+                @Model.Nachname
+            </dd>
+
+            <dt class="col-sm-3">
+                E-Mail
+            </dt>
+
+            <dd class="col-sm-9">
+                @Model.Email
+            </dd>
+
+        </dl>
+
+    </div>
+</div>
+
+
+<h4>Kurse</h4>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Kurs</th>
+            <th>Status</th>
+            <th>Anmeldedatum</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var kt in Model.KursTeilnehmer)
+        {
+            <tr>
+
+                <td>
+                    @kt.Kurs.Titel
+                </td>
+
+                <td>
+                    @switch (kt.Status)
+                    {
+                        case Status.Angemeldet:
+                            <span class="badge bg-success">
+                                Angemeldet
+                            </span>
+                            break;
+
+                        case Status.Abgesagt:
+                            <span class="badge bg-danger">
+                                Abgesagt
+                            </span>
+                            break;
+
+                        case Status.Abgeschlossen:
+                            <span class="badge bg-secondary">
+                                Abgeschlossen
+                            </span>
+                            break;
+                    }
+                </td>
+
+                <td>
+                    @kt.AnmeldeDatum
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">
+    Zurück
+</a>

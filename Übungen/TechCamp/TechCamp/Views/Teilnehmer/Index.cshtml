@@ -1,0 +1,41 @@
+@model IEnumerable<TechCamp.Models.Teilnehmer>
+
+@{
+    ViewData["Title"] = "Teilnehmer";
+}
+
+<h1>Teilnehmer</h1>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>E-Mail</th>
+            <th>Aktionen</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var teilnehmer in Model)
+        {
+            <tr>
+                <td>@teilnehmer.Vorname</td>
+
+                <td>@teilnehmer.Nachname</td>
+
+                <td>@teilnehmer.Email</td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@teilnehmer.Id" class="btn btn-sm btn-outline-primary">
+                        Details
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

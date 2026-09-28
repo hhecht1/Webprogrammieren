@@ -8,7 +8,7 @@ namespace TechCamp.ViewModels;
 public class KursCreateVM
 {
     [Required, StringLength(100)]
-    public string Titel { get; set; }
+    public string? Titel { get; set; }
 
     public string? Beschreibung { get; set; }
 
@@ -32,6 +32,6 @@ public class KursCreateVM
     public List<int> DozentIds { get; set; } = new();
 
     // Für den Dropdown in der View
-    public SelectList RaumeListe { get; set; }
-    public List<Dozent> AlleDozenten { get; set; }
+    public SelectList? RaumeListe { get; set; }
+    public List<Dozent>? AlleDozenten { get; set; }
 }

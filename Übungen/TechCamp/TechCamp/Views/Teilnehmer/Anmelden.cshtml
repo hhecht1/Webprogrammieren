@@ -1,0 +1,35 @@
+@using TechCamp.Models
+
+
+@model TechCamp.ViewModels.TeilnehmerAnmeldungVM
+
+@{
+    ViewData["Title"] = $"Anmelden – @ViewBag.KursTitel";
+}
+
+<h1>Teilnehmer anmelden: @ViewBag.KursTitel</h1>
+
+<form asp-action="Anmelden" asp-route-kursId="@ViewBag.KursId" method="post">
+    <input type="hidden" name="kursId" value="@ViewBag.KursId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="TeilnehmerId" class="form-label">Teilnehmer</label>
+        <select asp-for="TeilnehmerId" asp-items="Model.TeilnehmerListe" class="form-select">
+            <option value="">-- wählen --</option>
+        </select>
+        <span asp-validation-for="TeilnehmerId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Status" class="form-label">Status</label>
+        <select asp-for="Status" asp-items="Html.GetEnumSelectList<Status>()" class="form-select"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Anmelden</button>
+    <a asp-action="Index" class="btn btn-secondary">Abbrechen</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
