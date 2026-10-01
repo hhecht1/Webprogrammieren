@@ -1,6 +1,6 @@
 namespace WerkstattPro.Models
 {
-    public class Kunde
+    public void class Kunde
     {
         public int Id { get; set; }
         public string? Kennzeichen { get; set; }
@@ -9,4 +9,6 @@ namespace WerkstattPro.Models
         public DateTime Baujahr { get; set; }
         public int KundeId { get; set; }
     }
-}
+    
+
+
