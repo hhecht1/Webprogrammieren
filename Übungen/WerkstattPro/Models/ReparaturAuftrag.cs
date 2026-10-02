@@ -1,12 +1,14 @@
 namespace WerkstattPro.Models;
 
-public class  ReperaturAuftrag
+public class  ReparaturAuftrag
 {
     public int Id { get; set; }
     public string Beschreibung { get; set; } = string.Empty;
-    public DateTime AuftragsDatum { get; set; }
-    public bool status { get; set; }
+    public DateOnly AuftragsDatum { get; set; }
+    public bool Status { get; set; }
     public int FahrzeugId { get; set; }
-
+    public Fahrzeug Fahrzeug { get; set; } = null!;
+    public ICollection<AuftragMechaniker> AuftragMechaniker { get; set; } = new List<AuftragMechaniker>();
+    public ICollection<AuftragErsatzteil> AuftragErsatzteil { get; set; } = new List<AuftragErsatzteil>();
 }
 

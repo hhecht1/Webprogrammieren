@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\MVCfromScratch\\Models",
     "\\Übungen",
     "\\Übungen\\WerkstattPro",
+    "\\Übungen\\WerkstattPro\\Data",
     "\\Übungen\\WerkstattPro\\Models"
   ],
-  "SelectedNode": "\\Übungen\\WerkstattPro\\Models\\Mechaniker.cs",
+  "SelectedNode": "\\Übungen\\WerkstattPro\\Data\\WerkstattContext.cs",
   "PreviewInSolutionExplorer": false
 }

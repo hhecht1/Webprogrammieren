@@ -1,6 +1,14 @@
+
+using Microsoft.EntityFrameworkCore;
+using WerkstattPro.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<WerkstattContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Werkstatt")));
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

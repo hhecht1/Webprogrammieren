@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("5b65c5c1-2443-4e49-a7f8-e9b97d6c3ec7")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("WerkstattPro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51b67a6b0a377aec8f51377324ef20c138e745f1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7be6fc1505611069a521c04a90d9fd8946792e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("WerkstattPro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WerkstattPro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
