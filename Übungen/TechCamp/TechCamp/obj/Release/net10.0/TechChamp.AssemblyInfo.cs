@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TechChamp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51b67a6b0a377aec8f51377324ef20c138e745f1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b8fdec4f7d362456b46b884c36945a6a3103adc")]
 [assembly: System.Reflection.AssemblyProductAttribute("TechChamp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TechChamp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
